@@ -40,11 +40,9 @@
         methods:{
               login:function (){
                   var self = this;
-                  var url='http://localhost:8081/loginPost'
-                  var params={
-                      account:self.loginName,
-                      password:self.loginPwd
-                    }
+                  var url='http://localhost:8082/login'
+                  var params="account="+self.loginName+"&password="+self.loginPwd
+                    
                   self.$http.post(url,params).then(function (response) {
                     var errorcode=response.data.errorcode;
                     var responseCode=response.data.responseCode;
@@ -62,7 +60,7 @@
               },
               signin:function(){
                   var self = this;
-                  var url='http://localhost:8081/saveUserInfo'
+                  var url='http://localhost:8082/saveUserInfo'
                   var params={
                       account:self.loginName,
                       password:self.loginPwd
